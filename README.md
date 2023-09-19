@@ -14,7 +14,7 @@ This project aims to provide a hands-on experience with parallel and distributed
 
 `mpi4py` stands for MPI for Python, providing Python bindings for the Message Passing Interface (MPI). MPI is a standardized and portable message-passing system designed to allow processes to communicate in a parallel computing environment.
 
-## Installation
+## Quickstart
 
 To use `mpi4py`, you first need to install MPI. For this project, I used [Open MPI](https://www.open-mpi.org/).
 
@@ -23,8 +23,6 @@ Once MPI is installed, you can easily install `mpi4py` using pip:
 ```bash
 pip install mpi4py
 ```
-
-## Running the Code
 
 To execute the sequential version of the Fibonacci sequence algorithm:
 
@@ -41,6 +39,8 @@ mpiexec -n 12 python pararell_processing.py
 Here, `-n 12` indicates that we're using 12 processes, instructing MPI to spawn 12 separate processes to run our Python script in parallel. Here's what happens behind the scenes:
 
 > I used 12 processes because my machine runs a 12-core CPU (MacBook Pro M2).
+
+## Understanding the logic
 
 ### 1. Process Initialization:
 
@@ -73,6 +73,8 @@ Under the hood, MPI handles the communication between processes, ensuring data i
 ## Code Logic
 
 The Fibonacci sequence algorithm calculates the sum of Fibonacci numbers for a list of numbers. In the sequential version, the algorithm processes the entire list in a single thread. In contrast, the parallel version divides the list among multiple processes, each calculating a partial sum. The root process (process 0) aggregates these partial sums to get the final result.
+
+> I chose this algorithm because it is somewhat computational intensive.
 
 ## Performance Analysis
 
